@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'users.apps.UsersConfig',
     'api.apps.ApiConfig',
+    'analyze.apps.AnalyzeConfig',
 ]
 
 REST_FRAMEWORK = {
