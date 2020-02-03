@@ -6,17 +6,23 @@
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 {% if user.is_authenticated %}
-    <div class="login-signup">
-        <p class="user-welcome">Hi <b>{{ user.username }}</b>!</p>
-        <p><a href="{% url 'logout' %}" class="link">logout</a></p>
+    <div class="topnav" id="myTopnav">
+        <a href="{% url 'logout' %}" class="active">logout</a>
+        <a class="link">Hi <b>{{ user.username }}</b>!</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+          </a>
     </div>
 {% else %}
-    <div class="login-signup">
-        <p class="user-welcome">You are not logged in</p>
-        <a href="{% url 'login' %}" class="link">login</a><br>
+    <div class="topnav" id="myTopnav">
+        <a href="{% url 'login' %}" class="active">login</a>
         <a href="{% url 'signup' %}" class="link">signup</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+          </a>
     </div>
 {% endif %}
+<input type='hidden' value="{{ q }}" id="query">
 <h1 class="title">Your Glimpse Results</h1>
 <div id="app" class="results">
     <h1>[[ q ]]</h1>
@@ -24,10 +30,10 @@
         <h2 class="text">Positive Score: [[ pos ]]<br>Negative Score: [[ neg ]]</h2>
         <h3 class="text">Sentiment Summary</h3>
     </p>
-    <p>
+    <!-- <p>
         <img v-if="loadingComplete" src="/static/bar.png" alt="Sentiment Graph">
         <h3 class="text">Sentiment: Positive vs. Negative</h3>
-    </p>
+    </p> -->
     <p>
         <img v-if="loadingComplete" src="/static/wordcloud.png" alt="Glimpse Wordcloud">
         <h3 class="text">Words most commonly used in your Glimpse</h3>
@@ -43,6 +49,7 @@ let vm = new Vue({
         neg:'',
         pos:'',
         loadingComplete: false,
+        q: '',
     },
     created: function(){
         axios({

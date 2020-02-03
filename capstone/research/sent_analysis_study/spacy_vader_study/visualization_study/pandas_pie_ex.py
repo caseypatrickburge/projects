@@ -2,8 +2,8 @@ import matplotlib.pyplot as plt; plt.rcdefaults()
 import numpy as np
 import matplotlib.pyplot as plt
 
-pos = 10.5
-neg = 5.7
+pos = 14.3
+neg = 1.6
 
 objects = ('Positive', 'Negative')
 y_pos = np.arange(len(objects))

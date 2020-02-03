@@ -62,10 +62,10 @@ def sentiment_return(request):
     # function that pulls tweets
     def get_tweets():
     # twitter dev credentials here:
-        consumer_key = 'sDWaGkbuFxWBWIjlcDziP9Y3K'
-        consumer_secret = 'TipNqpxvHD4D9MsrhzNH5BGszEXym7VF6gxBR5MFhkIY7fdjKy'
-        access_token = '1218694128260640768-zI3bHLIW4uPtfwHfVhVCW3dozU57pj'
-        access_token_secret = 'kvKjWAYQYEso2MuMGEtEYnRHWPVwMnf1XyJy6tzR7VW5V'
+        consumer_key = secrets.ck
+        consumer_secret = secrets.cs
+        access_token = secrets.at
+        access_token_secret = secrets.ats
 
         auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
         auth.set_access_token(access_token, access_token_secret)
@@ -149,19 +149,20 @@ def sentiment_return(request):
         
     generate_wordcloud(tweet_list)
 
-    def generate_bar():
-        positive = pos
-        negative = neg
-        objects = ('Positive', 'Negative')
-        y_pos = np.arange(len(objects))
-        performance = [positive,negative]
-
-        plt.bar(y_pos, performance, align='center', alpha=0.5)
-        plt.xticks(y_pos, objects)
-        plt.ylabel('Sentiment Score')
-        plt.title('')
-        plt.savefig('static/bar.png')
-    generate_bar()    
+    # def generate_bar(pos, neg):
+    #     positive = pos
+    #     negative = neg
+    #     objects = ('Positive', 'Negative')
+    #     y_pos = np.arange(2)
+    #     performance = [positive,negative]
+    #     plt.switch_backend('Agg')
+    #     plt.bar(y_pos, performance, alpha=0.5)
+    #     plt.xticks(y_pos, objects)
+    #     plt.ylabel('Sentiment Score')
+    #     plt.title('')
+    #     plt.savefig('static/bar.png')
+    #     plt.clf()
+    # generate_bar(pos, neg)    
     
     return JsonResponse({
         "neg":neg,
