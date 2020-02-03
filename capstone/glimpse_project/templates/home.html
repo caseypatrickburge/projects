@@ -5,6 +5,7 @@
 {% block content %}
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js"></script>
 {% if user.is_authenticated %}
     <div class="topnav" id="myTopnav">
         <a href="{% url 'logout' %}" class="active">logout</a>
@@ -25,18 +26,25 @@
 <input type='hidden' value="{{ q }}" id="query">
 <h1 class="title">Your Glimpse Results</h1>
 <div id="app" class="results">
-    <h1>[[ q ]]</h1>
+    <h4 class="for">for</h4>
+    <h1 class="search-term">[[ q ]]</h1>
     <p>
-        <h2 class="text">Positive Score: [[ pos ]]<br>Negative Score: [[ neg ]]</h2>
+        <h2 class="score">Positive Score: [[ pos ]]<br>Negative Score: [[ neg ]]</h2>
         <h3 class="text">Sentiment Summary</h3>
+    </p>
+    <p>
+        <div class="chart">
+            <canvas id="myChart" width="50" height="50"></canvas>
+        </div>
+        <h3 class="text">Sentiment: Positive vs. Negative</h3>
     </p>
     <!-- <p>
         <img v-if="loadingComplete" src="/static/bar.png" alt="Sentiment Graph">
         <h3 class="text">Sentiment: Positive vs. Negative</h3>
     </p> -->
     <p>
-        <img v-if="loadingComplete" src="/static/wordcloud.png" alt="Glimpse Wordcloud">
-        <h3 class="text">Words most commonly used in your Glimpse</h3>
+        <img v-if="loadingComplete" src="/static/wordcloud.png" style='width:80%;' alt="Glimpse Wordcloud">
+        <h3 class="cloud-text">Words most commonly used in your Glimpse</h3>
         <h4 class="notes"><i>*frequency reflected in size // largest = most frequently used</i></h4>
     </p>
 </div>
@@ -62,9 +70,45 @@ let vm = new Vue({
             this.q = response.data.q;
             this.neg = response.data.neg;
             this.pos = response.data.pos;
+            myChart.data.datasets[0].data=[this.pos, this.neg];
+            myChart.update()
             this.loadingComplete = true;
         })
     }    
+});
+
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Positive', 'Negative'],
+        datasets: [{
+            label: '',
+            data: [.5,.5],
+            backgroundColor: [
+                'rgba(153, 209, 177, 0.6)',
+                'rgba(255, 143, 162, 0.6)'
+            ],
+            borderColor: [
+                'rgba(153, 209, 177, 1)',
+                'rgba(255, 143, 162, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        legend: {
+            display: false
+        },
+        maintainAspectRatio: false,
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
 });
 </script>
 {% endblock %}

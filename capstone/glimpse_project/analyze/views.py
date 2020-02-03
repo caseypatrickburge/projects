@@ -54,10 +54,6 @@ def sentiment_return(request):
     try:
         os.remove("static/wordcloud.png")
     except FileNotFoundError:
-        pass   
-    try: 
-        os.remove("static/bar.png")
-    except FileNotFoundError:
         pass
     # function that pulls tweets
     def get_tweets():
@@ -145,24 +141,9 @@ def sentiment_return(request):
         now = datetime.now()
         # create wordcloud from tweet_list
         # remove stopwords & irrelevant phrases
-        WordCloud(background_color="white", max_words=5000, contour_width=3, contour_color="steelblue").generate_from_text(" ".join([r for _d in tweet_list for r in _d['body'].decode('utf-8').replace('https', "").replace('photo', '').replace('RT', '').split() if r not in set(nltk.corpus.stopwords.words("english"))])).to_file("static/wordcloud.png")
+        WordCloud(width=800, height=400, background_color="white", max_words=5000, contour_width=3, contour_color="steelblue").generate_from_text(" ".join([r for _d in tweet_list for r in _d['body'].decode('utf-8').replace('https', "").replace('photo', '').replace('RT', '').split() if r not in set(nltk.corpus.stopwords.words("english"))])).to_file("static/wordcloud.png")
         
-    generate_wordcloud(tweet_list)
-
-    # def generate_bar(pos, neg):
-    #     positive = pos
-    #     negative = neg
-    #     objects = ('Positive', 'Negative')
-    #     y_pos = np.arange(2)
-    #     performance = [positive,negative]
-    #     plt.switch_backend('Agg')
-    #     plt.bar(y_pos, performance, alpha=0.5)
-    #     plt.xticks(y_pos, objects)
-    #     plt.ylabel('Sentiment Score')
-    #     plt.title('')
-    #     plt.savefig('static/bar.png')
-    #     plt.clf()
-    # generate_bar(pos, neg)    
+    generate_wordcloud(tweet_list) 
     
     return JsonResponse({
         "neg":neg,
