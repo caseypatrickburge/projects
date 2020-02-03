@@ -1,14 +1,63 @@
 {% extends 'base.html' %}
 
-{% block title %}Home{% endblock %}
+{% block title %}Glimpse Sentiment{% endblock %}
 
 {% block content %}
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 {% if user.is_authenticated %}
-    Hi {{ user.username }}!
-    <p><a href="{% url 'logout' %}">logout</a></p>
+    <div class="login-signup">
+        <p class="user-welcome">Hi <b>{{ user.username }}</b>!</p>
+        <p><a href="{% url 'logout' %}" class="link">logout</a></p>
+    </div>
 {% else %}
-    <p>You are not logged in</p>
-    <a href="{% url 'login' %}">login</a>
-    <a href="{% url 'signup' %}">signup</a>
+    <div class="login-signup">
+        <p class="user-welcome">You are not logged in</p>
+        <a href="{% url 'login' %}" class="link">login</a><br>
+        <a href="{% url 'signup' %}" class="link">signup</a>
+    </div>
 {% endif %}
+<h1 class="title">Your Glimpse Results</h1>
+<div id="app" class="results">
+    <h1>[[ q ]]</h1>
+    <p>
+        <h2 class="text">Positive Score: [[ pos ]]<br>Negative Score: [[ neg ]]</h2>
+        <h3 class="text">Sentiment Summary</h3>
+    </p>
+    <p>
+        <img v-if="loadingComplete" src="/static/bar.png" alt="Sentiment Graph">
+        <h3 class="text">Sentiment: Positive vs. Negative</h3>
+    </p>
+    <p>
+        <img v-if="loadingComplete" src="/static/wordcloud.png" alt="Glimpse Wordcloud">
+        <h3 class="text">Words most commonly used in your Glimpse</h3>
+        <h4 class="notes"><i>*frequency reflected in size // largest = most frequently used</i></h4>
+    </p>
+</div>
+<script>
+let queryVal = document.querySelector("#query").value;
+let vm = new Vue({
+    el: '#app',
+    delimiters: ['[[', ']]'],
+    data:{
+        neg:'',
+        pos:'',
+        loadingComplete: false,
+    },
+    created: function(){
+        axios({
+            method:"post",
+            url:"{% url 'sentiment' %}",
+            data:{
+                query:queryVal
+            }
+        }).then((response)=>{
+            this.q = response.data.q;
+            this.neg = response.data.neg;
+            this.pos = response.data.pos;
+            this.loadingComplete = true;
+        })
+    }    
+});
+</script>
 {% endblock %}

@@ -4,11 +4,86 @@
 
 {% block content %}
 {% if user.is_authenticated %}
-    Hi {{ user.username }}!
-    <p><a href="{% url 'logout' %}">logout</a></p>
+    <div class="login-signup">
+        <p class="user-welcome">Hi <b>{{ user.username }}</b>!</p>
+        <p><a href="{% url 'logout' %}" class="link">logout</a></p>
+    </div>
 {% else %}
-    <p>You are not logged in</p>
-    <a href="{% url 'login' %}">login</a>
-    <a href="{% url 'signup' %}">signup</a>
+    <div class="login-signup">
+        <p class="user-welcome">You are not logged in</p>
+        <a href="{% url 'login' %}" class="link">login</a><br>
+        <a href="{% url 'signup' %}" class="link">signup</a>
+    </div>
 {% endif %}
+<h1 class="search-title">Glimpse Sentiment</h1>
+<h3 class="subtitle">A modest tweet sentiment analysis tool.</h3>
+<div class="search">
+    <form method="POST" action="{% url 'analyze' %}">
+        {% csrf_token %}
+        <input name="q" type="text" placeholder="#yoursearch" autocomplete="off" class="search-input"><br><br>
+        <label><b>Search by #</b></label><br><br>
+        <select name="count">
+            <option value="1">1 page</option>
+            <option value="2">2 pages</option>
+            <option value="3">3 pages</option>
+            <option value="4">4 pages</option>
+        </select><br><br>
+        <label><b>Select number of pages to analyze</b></label><br><br>
+        <select name="month">
+            <option value="01">January</option>
+            <option value="02">February</option>
+            <option value="03">March</option>
+            <option value="04">April</option>
+            <option value="05">May</option>
+            <option value="06">June</option>
+            <option value="07">July</option>
+            <option value="08">August</option>
+            <option value="09">September</option>
+            <option value="10">November</option>
+            <option value="11">December</option>
+        </select>
+        <select name="day">
+            <option value="01">1</option>
+            <option value="02">2</option>
+            <option value="03">3</option>
+            <option value="04">4</option>
+            <option value="05">5</option>
+            <option value="06">6</option>
+            <option value="07">7</option>
+            <option value="08">8</option>
+            <option value="09">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+            <option value="19">19</option>
+            <option value="20">20</option>
+            <option value="21">21</option>
+            <option value="22">22</option>
+            <option value="23">23</option>
+            <option value="24">24</option>
+            <option value="25">25</option>
+            <option value="26">26</option>
+            <option value="27">27</option>
+            <option value="28">28</option>
+        </select>
+        <select name="year">
+            <option value="2020">2020</option>
+            <option value="2019">2019</option>
+            <option value="2018">2018</option>
+            <option value="2017">2017</option>
+            <option value="2016">2016</option>
+            <option value="2015">2015</option>
+        </select><br><br>
+        <label><b>Select date to search from</b></label><br><br>
+        <input type="submit" value="Catch your Glimpse">
+    </form>
+</div>
+
 {% endblock %}
+

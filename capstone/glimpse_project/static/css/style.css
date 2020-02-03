@@ -1,0 +1,179 @@
+body {
+    background-color: rgba(255, 255, 255, 0.425);
+    color: rgb(255, 143, 162);
+}
+
+h1 {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 40pt;
+    color: rgb(153, 209, 177); 
+}
+
+.submit {
+    color: rgb(138, 137, 137);
+}
+
+.login {
+    text-align: center;
+}
+
+.results {
+    text-align: center;
+} 
+
+.title {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.search-title {
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 20pt;
+    margin-top: 0px;
+}
+
+.text {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.search {
+    text-align: center;
+}
+
+.footer {
+    font-family: Arial, Helvetica, sans-serif;
+    display: none;
+    font-weight: bold;
+    font-size: 15pt;
+}
+  
+@media (min-width: 992px) {
+    .footer {
+        display: block;
+        padding: 20px 0;
+        margin-bottom: 0;
+        text-align: center;
+        overflow: hidden;
+        width: 100%;
+    }
+}
+
+.search-input {
+    text-align: center;
+}
+
+::-webkit-input-placeholder {
+    text-align: center;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+text-align: center;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+text-align: center;  
+}
+
+:-ms-input-placeholder {  
+text-align: center; 
+}
+
+input {
+    font-size: 15pt;
+    height: 44px;
+    background-color: transparent;
+    color: rgb(138, 137, 137);
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: groove;
+    border-bottom-color:black;
+    text-align: left;
+}
+
+::placeholder {
+    color: rgb(138, 137, 137);
+}
+
+button {
+    font-size: 15pt;
+    height: 44px;
+    background-color: transparent;
+    color: black;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: groove;
+    border-bottom-color: black;
+    text-align: left;
+}
+
+label {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15pt;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+select {
+    font-size: 15pt;
+    height: 44px;
+    background-color: transparent;
+    color: rgb(138, 137, 137);
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: groove;
+    border-bottom-color: rgb(138, 137, 137);
+    text-align: left;
+}
+
+a:visited { 
+    text-decoration: none; 
+    color: rgb(211, 149, 211);
+}
+a:hover { 
+    text-decoration: underline; 
+}
+a:active { 
+    text-decoration: underline; 
+}
+
+a {
+    text-align: right;
+    text-decoration: none;
+    color: rgb(82, 170, 228);
+}
+
+.login-signup {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.link {
+    font-size: 15pt;
+}
+
+.user-welcome {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.helptext {
+    display: none;
+}
+
+li {
+    display: none;
+}
+
+.signup {
+    text-align: center;
+}

@@ -8,6 +8,12 @@ verify_ssl = true
 [packages]
 django = "==2.2.7"
 djangorestframework = "==3.10.3"
+tweepy = "*"
+spacy = "*"
+pandas = "*"
+nltk = "*"
+wordcloud = "*"
+vadersentiment = "*"
 
 [requires]
 python_version = "3.7"
