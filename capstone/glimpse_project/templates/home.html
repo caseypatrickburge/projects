@@ -6,25 +6,28 @@
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 {% if user.is_authenticated %}
     <div class="topnav" id="myTopnav">
-        <a href="{% url 'logout' %}" class="active">logout</a>
+        <a href="{% url 'analyze' %}" class="active">home</a>
+        <a href="{% url 'logout' %}" class="link">logout</a>
         <a class="link">Hi <b>{{ user.username }}</b>!</a>
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
             <i class="fa fa-bars"></i>
-          </a>
+        </a>
     </div>
 {% else %}
     <div class="topnav" id="myTopnav">
-        <a href="{% url 'login' %}" class="active">login</a>
+        <a href="{% url 'analyze' %}" class="active">home</a>
+        <a href="{% url 'login' %}" class="link">login</a>
         <a href="{% url 'signup' %}" class="link">signup</a>
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
             <i class="fa fa-bars"></i>
-          </a>
+        </a>
     </div>
 {% endif %}
 <input type='hidden' value="{{ q }}" id="query">
-<h1 class="title">Your Glimpse Results</h1>
+<h1 class="title">Glimpse Results</h1>
 <div id="app" class="results">
     <h4 class="for">for</h4>
     <h1 class="search-term">[[ q ]]</h1>
@@ -48,7 +51,7 @@
         <h4 class="notes"><i>*frequency reflected in size // largest = most frequently used</i></h4>
     </p>
     <!-- <a href="/" class="return-to-search">Glimpse again!</a> -->
-    <button onclick="window.location.href = '/';" class="return-to-search">Glimpse again!</button>
+    <button onclick="window.location.href = '/';" class="return-to-search">Catch another Glimpse</button>
 </div>
 <script>
 let queryVal = document.querySelector("#query").value;

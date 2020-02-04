@@ -141,7 +141,7 @@ def sentiment_return(request):
         now = datetime.now()
         # create wordcloud from tweet_list
         # remove stopwords & irrelevant phrases
-        WordCloud(width=800, height=400, background_color="white", max_words=5000, contour_width=3, contour_color="steelblue").generate_from_text(" ".join([r for _d in tweet_list for r in _d['body'].decode('utf-8').replace('https', "").replace('photo', '').replace('RT', '').split() if r not in set(nltk.corpus.stopwords.words("english"))])).to_file("static/wordcloud.png")
+        WordCloud(width=800, height=400, background_color="white", max_words=5000, contour_width=3, contour_color="steelblue").generate_from_text(" ".join([r for _d in tweet_list for r in _d['body'].decode('utf-8').replace('https', "").replace('photo', '').replace('RT', '').replace('co', '').split() if r not in set(nltk.corpus.stopwords.words("english"))])).to_file("static/wordcloud.png")
         
     generate_wordcloud(tweet_list)
     
