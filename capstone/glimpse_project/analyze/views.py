@@ -25,6 +25,11 @@ from wordcloud import WordCloud
 import matplotlib.pyplot as plt; plt.rcdefaults()
 
 def analyze(request):
+    # delete previous wordcloud
+    try:
+        os.remove("static/wordcloud.png")
+    except FileNotFoundError:
+        pass
     print(request.POST)
     if request.method == 'POST':
         q = request.POST.get('q')
@@ -50,11 +55,6 @@ def sentiment_return(request):
     day = "01"
     year = "2020"
     count = "2"
-    # delete previous wordcloud
-    try:
-        os.remove("static/wordcloud.png")
-    except FileNotFoundError:
-        pass
     # function that pulls tweets
     def get_tweets():
     # twitter dev credentials here:
@@ -143,11 +143,10 @@ def sentiment_return(request):
         # remove stopwords & irrelevant phrases
         WordCloud(width=800, height=400, background_color="white", max_words=5000, contour_width=3, contour_color="steelblue").generate_from_text(" ".join([r for _d in tweet_list for r in _d['body'].decode('utf-8').replace('https', "").replace('photo', '').replace('RT', '').split() if r not in set(nltk.corpus.stopwords.words("english"))])).to_file("static/wordcloud.png")
         
-    generate_wordcloud(tweet_list) 
+    generate_wordcloud(tweet_list)
     
     return JsonResponse({
         "neg":neg,
         "pos":pos,
         "q":q,
     })
-

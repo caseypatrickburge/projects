@@ -144,12 +144,12 @@ button {
     font-size: 15pt;
     height: 44px;
     background-color: transparent;
-    color: black;
+    color: rgb(138, 137, 137);
     border-top-style: hidden;
     border-right-style: hidden;
     border-left-style: hidden;
     border-bottom-style: groove;
-    border-bottom-color: black;
+    border-bottom-color: rgb(138, 137, 137);
     text-align: left;
 }
 
@@ -173,7 +173,13 @@ select {
     text-align: left;
 }
 
-select:focus, input:focus {
+select:focus, input:focus, button:focus {
+    outline-color: rgb(153, 209, 177);
+}
+
+input:hover, button:hover {
+    outline-style: auto;
+    outline-width: 5px;
     outline-color: rgb(153, 209, 177);
 }
 
@@ -192,6 +198,12 @@ a {
     text-align: right;
     text-decoration: none;
     color: rgb(82, 170, 228);
+}
+
+.return-to-search {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20pt;
 }
 
 .login-signup {
