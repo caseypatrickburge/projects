@@ -1,0 +1,262 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-color: #2196f3;
+}
+
+h1 {
+    margin-bottom: 0px;
+    margin-top: 15px;
+}
+
+img {
+    max-width: 100%;
+}
+
+.container-info {
+    display: flex;
+    justify-content: center;
+}
+
+#item-info {
+    margin-top: 20px;
+    background-color: #333;
+    color: #fff;
+    font-size: 20pt;
+    margin-right: 15%;
+    margin-left: 15%;
+    margin-bottom: 20px;
+    padding: 25px 25px 25px 25px;
+}
+
+.container-list {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.list-title {
+    text-align: center;
+    color: #1f81f9;
+}
+
+b {
+    color: #1f81f9;
+}
+
+li {
+    margin-left: 2%;
+    margin-bottom: 10px;
+    color: #2196f3;
+}
+
+.title {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 25pt;
+    font-weight: bold;
+}
+
+#item-list {
+    background-color: #333;
+    color: #fff;
+    font-size: 20pt;
+    padding-right: 25px;
+    padding-left: 25px;
+}
+
+.container-services {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    flex-direction: row;
+    align-items: center;
+}
+
+p {
+    margin-top: 10px;
+}
+
+.item-services1 {
+    margin-top: 20px;
+    background-color: #333;
+    color: #fff;
+    font-size: 20pt;
+    margin-right: 15%;
+    margin-left: 15%;
+    margin-bottom: 20px;
+    padding: 10px 25px 10px 25px;
+}
+
+.item-services2 {
+    margin-top: 20px;
+    background-color: #333;
+    color: #fff;
+    font-size: 20pt;
+    margin-right: 15%;
+    margin-left: 15%;
+    margin-bottom: 20px;
+    padding: 10px 25px 10px 25px;
+}
+
+.item-services3 {
+    margin-top: 20px;
+    background-color: #333;
+    color: #fff;
+    font-size: 20pt;
+    margin-right: 15%;
+    margin-left: 15%;
+    margin-bottom: 20px;
+    padding: 10px 25px 10px 25px;
+}
+
+.container-schedule {
+    display: flex;
+    justify-content: center;
+}
+
+#item-schedule {
+    margin-top: 20px;
+    background-color: #333;
+    color: #fff;
+    font-size: 20pt;
+    margin-right: 15%;
+    margin-left: 15%;
+    margin-bottom: 20px;
+    padding: 10px 25px 10px 25px;
+}
+
+@media (max-width: 800px){
+    body {
+        flex-direction: column;
+    }
+}
+
+.button-div {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.button {
+    display: inline-block;
+    border: none;
+    padding: 1rem 2rem;
+    margin: 0;
+    text-decoration: none;
+    background: #0069ed;
+    color: #ffffff;
+    font-family: sans-serif;
+    font-size: 20pt;
+    cursor: pointer;
+    text-align: center;
+    transition: background 250ms ease-in-out, 
+                transform 150ms ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+button:hover,
+button:focus {
+    background: #0053ba;
+}
+
+button:focus {
+    outline: 1px solid #fff;
+    outline-offset: -4px;
+}
+
+button:active {
+    transform: scale(0.99);
+}
+
+button {
+    text-align: center;
+}
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0 100px;
+    background: #262626;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+header .logo {
+    color: #fff;
+    height: 50px;
+    line-height: 50px;
+    font-size: 24px;
+    float: left;
+    font-weight: bold;
+}
+
+header nav {
+    float: right;
+}
+
+header nav ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+header nav ul li {
+    list-style: none;
+}
+
+header nav ul li a {
+    height: 50px;
+    line-height: 50px;
+    padding: 0 20px;
+    color: #fff;
+    text-decoration: none;
+    display: block;
+}
+
+header nav ul li a:hover,
+header nav ul li a.active {
+    color: #fff;
+    background: #2196f3;
+}
+
+.menu-toggle {
+    color: #fff;
+    float: right;
+    line-height: 50px;
+    font-size: 24px;
+    cursor: pointer;
+    display: none;
+}
+
+@media (max-width: 991px) {
+    header {
+        padding: 0 20px;
+    }
+    .menu-toggle {
+        display: block;
+    }
+    header nav {
+        /* display: none; */
+        position: absolute;
+        width: 40%;
+        height: calc(100vh - 50px);
+        background: #333;
+        top: 50px;
+        left: -100%;
+        transition: 0.5s;
+    }
+    header nav.active {
+        left: 0;
+    }
+    header nav ul {
+        display: block;
+        text-align: center;
+    }
+    header nav ul li a {
+        border-bottom: 1px solid rgba(0,0,0,.2);
+    }
+}

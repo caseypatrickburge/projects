@@ -6,10 +6,72 @@
         <title>Burge's Plumbing</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="style.css">
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     </head>
-        <h1>Burge's Plumbing</h1>
     <body>
-        <script src=""></script>
+        <header>
+            <div class="logo">BURGE'S PLUMBING</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="schedule.html">Schedule</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle"><i class="fa fa-bars" aria-hidden="true"></i></div>
+        </header>
+        <img src="plumber.jpeg">
+        </div>
+        <div class="container-info"></div>
+            <div class="info" id="item-info">
+                <b>Burge's Plumbing</b> has an entire staff of dedicated journeyman plumbing contractors. From remodeling to emergency plumbing repairs, we're here for you! Call today for local plumbing advice, or to schedule your service! <b>Plumbing Done Right The First Time</b> Since 1984.
+            </div>
+        </div>
+        <div class="container-list">
+            <div class="list" id="item-list">
+                <h1 class="list-title">Expert Contractors</h1>
+                <p class="title">Journeyman Plumbers Since 1984</p>
+                <ul>
+                    <li>Educated and experienced journeymen plumbers</li>
+                    <li>Personalized, around-the-clock care</li>
+                    <li>On-site diagnosis and estimates</li>
+                    <li>Top quality equipment and durable brand-name parts</li>
+                    <li>Licensed, bonded, insured and safety-oriented</li>
+                </ul>
+            </div>
+        </div>
+        <div class="containter-services">
+            <div class="item-services1" id="item-services1">
+                <h1><b>Commercial Plumbers</b></h1>
+                <p>You can count on our team of licensed journeyman plumbers to repair and service your Commercial Plumbing job.</p>
+            </div>
+            <div class="item-services1" id="item-services1">
+                <h1><b>Residential Plumbers</b></h1>
+                <p>Need a plumber at your house? We provide skilled service and unsurpassed workmanship for your residential plumbing repair.</p>
+            </div>
+            <div class="item-services3" id="item-services3">
+                <h1><b>Remodel Plumbers</b></h1>
+                <p>Whether you are remodeling your commercial office or your home, we will provide plumbing for all your remodeling needs.</p>
+            </div>
+        </div>
+        <div class="containter-schedule">
+            <div class="schedule" id="item-schedule">
+                <h1><b>Ready to Schedule Your Plumbing Service?</b></h1>
+                <p>Click the Button below to leave your information. A team member will be reaching out to you very shortly!</p>
+            </div>
+        </div>
+        <div class="button-div">
+            <button type="input" href="schedule.html" class="button">REQUEST SERVICE</button>
+        </div>
+        <script>
+            const menuToggle = document.querySelector('.menu-toggle');
+            const nav = document.querySelector('nav');
+            menuToggle.addEventListener('click', () => {
+                if (nav.className != 'active') {nav.className = 'active';}
+                else {nav.className = '';}
+            });
+        </script>
     </body>
 </html>

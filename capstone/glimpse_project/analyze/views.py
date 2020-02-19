@@ -58,10 +58,10 @@ def sentiment_return(request):
     # function that pulls tweets
     def get_tweets():
     # twitter dev credentials here:
-        consumer_key = secrets.ck
-        consumer_secret = secrets.cs
-        access_token = secrets.at
-        access_token_secret = secrets.ats
+        consumer_key = secrets.ck1
+        consumer_secret = secrets.cs1
+        access_token = secrets.at1
+        access_token_secret = secrets.ats1
 
         auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
         auth.set_access_token(access_token, access_token_secret)

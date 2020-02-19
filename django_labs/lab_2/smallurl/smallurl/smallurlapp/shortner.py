@@ -1,7 +1,7 @@
 import random
 import string
 
-class Shortner:
+class shortner:
     token_size = 5
 
     def __init__(self, token_size=None):
@@ -9,4 +9,4 @@ class Shortner:
 
     def issue_token(self):
         letters = string.ascii_letters
-        return ''.join(random.choice(letters)) for i in range(self.token_size))
+        return ''.join(random.choice(letters) for i in range(self.token_size))

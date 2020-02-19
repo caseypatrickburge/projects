@@ -1,6 +1,7 @@
 from django import forms
-from .models import ShortUrls
+from .models import short_urls
 
 class UrlForm(forms.ModelForm):
     class Meta:
-        model = 
+        model = short_urls
+        fields = ['long_url']
