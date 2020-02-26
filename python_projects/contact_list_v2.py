@@ -1,5 +1,5 @@
 '''
-Lab 23: Contact List - Version 1
+Lab 23: Contact List - Version 2
 
 Purpose/goal: Implement a CRUD REPL
 
