@@ -1,0 +1,30 @@
+body {
+  background-color: #f1f9f9;
+  color: #4a4d8c;
+}
+
+hr {
+  border-style: none;
+  border-top-style: dotted;
+  border-color: #72b5b7;
+  border-width: 5px;
+  width: 10%;
+}
+
+h1,
+h3 {
+  color: #40e0d0;
+}
+
+h1,
+p,
+h3,
+ul {
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
+.image {
+  text-align: center;
+  padding-top: 5%;
+}
